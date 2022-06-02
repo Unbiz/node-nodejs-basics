@@ -1,6 +1,7 @@
 import { Worker } from 'worker_threads';
 import { fileURLToPath } from 'url';
 import path from 'path';
+import os from 'os';
 
 const moduleDirname = path.dirname(fileURLToPath(import.meta.url));
 const workerPath = path.resolve(moduleDirname, 'worker.js');
@@ -18,8 +19,10 @@ export const performCalculations = async () => {
     }
 
     const workers = [];
+    const cpuCoreCount = os.cpus().length;
+    const startNumber = 10;
 
-    for (let i = 10; i <= 13; i += 1) {
+    for (let i = startNumber; i < startNumber + cpuCoreCount; i += 1) {
         workers.push(getWorker(i));
     }
 
