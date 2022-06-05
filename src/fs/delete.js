@@ -8,7 +8,7 @@ const removeFilePath = path.resolve(moduleDirname, 'files/fileToRemove.txt');
 export const remove = async () => {
     try {
         await fsProm.rm(removeFilePath);
-        console.log(`File is removed successfully.`);
+        console.log(`File removed successfully.`);
     } catch {
         throw new Error('FS operation failed');
     }

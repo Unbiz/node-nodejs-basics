@@ -10,7 +10,7 @@ export const rename = async () => {
     try {
         await fsProm.rename(baseFilePath, renamedFilePath);
 
-        console.log(`File is renamed successfully.`);
+        console.log(`File renamed successfully.`);
     } catch {
         throw new Error('FS operation failed');
     }

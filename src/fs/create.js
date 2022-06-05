@@ -10,7 +10,7 @@ export const create = async () => {
         const fileText = 'I am fresh and young';
         const fileOptions = { encoding: 'utf8', flag: 'ax' };
         await fsProm.writeFile(newFIlePath, fileText, fileOptions);
-        console.log(`File is created successfully.`);
+        console.log(`File created successfully.`);
     } catch {
         throw new Error('FS operation failed');
     }
