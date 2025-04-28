@@ -1,5 +1,14 @@
+import fsProm from 'fs/promises';
+import { fileURLToPath } from 'url';
+import path from 'path';
+
+const moduleDirname = path.dirname(fileURLToPath(import.meta.url));
+const filePath = path.resolve(moduleDirname, 'files/fileToRead.txt');
+
 const read = async () => {
-    // Write your code here 
+    const file = await fsProm.open(filePath);
+    const readable = file.createReadStream();
+    readable.pipe(process.stdout);
 };
 
 await read();
