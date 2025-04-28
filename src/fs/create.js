@@ -2,6 +2,9 @@ import { fileURLToPath } from 'url';
 import fsProm from 'fs/promises';
 import path from 'path';
 
+const moduleDirname = path.dirname(fileURLToPath(import.meta.url));
+const newFIlePath = path.resolve(moduleDirname, 'files/fresh.txt');
+
 const create = async () => {
     try {
         const fileText = 'I am fresh and young';
