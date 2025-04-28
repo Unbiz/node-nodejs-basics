@@ -1,5 +1,16 @@
+import { fileURLToPath } from 'url';
+import fsProm from 'fs/promises';
+import path from 'path';
+
 const create = async () => {
-    // Write your code here 
+    try {
+        const fileText = 'I am fresh and young';
+        const fileOptions = { encoding: 'utf8', flag: 'ax' };
+        await fsProm.writeFile(newFIlePath, fileText, fileOptions);
+        console.log(`File created successfully.`);
+    } catch {
+        throw new Error('FS operation failed');
+    }
 };
 
 await create();
